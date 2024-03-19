@@ -1,0 +1,43 @@
+Hosting Python Flask App using Docker.
+
+
+
+Step-1
+Login through aws console , start your ubantu instance & install docker in it Connect ec2 instance
+
+Step-2
+Create directory as FlaskApp 
+#mkdir FlaskAPP
+
+Step-3
+Create Dockerfile in that directory with vim command #cd FlaskApp
+#vim Dockerfile
+
+
+
+Paste following content inside the Docker file FROM ubuntu:latest
+FROM python3.8
+
+LABEL folder="FlaskApp"
+
+LABEL Author="siddhant"
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["flask" , "run" , "--host" , "0.0.0.0"]
+
+
+Enter command # docker build . --->to create an docker image
+
+Step-6
+List the images by using command "docker images"
+
+Step-7
+Create container with the help of docker image #docker run -d -p 5000:5000
+
+Step-8
+Check the application in browser http//<IP of instance>:5000
