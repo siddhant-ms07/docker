@@ -1,0 +1,54 @@
+
+Nodejs application using docker file
+
+Introduction :This document provides a guide for implementing a Docker container for the Node.js Chat App using the 
+provided Dockerfile. The Dockerfile defines the environment and dependencies required to run
+the application within a Docker container. 
+
+Prerequisites:
+ Docker installed on the host machine.
+ Internet connectivity to download dependencies during the Docker build process.
+
+Step-1
+Login through aws console , start your ubantu instance & install docker in it Connect ec2 instance
+
+Step-2
+Create directory as nodejsapp #mkdir nodejsapp
+
+Step-3
+Create Dockerfile in that directory with vim command #cd nodejsapp
+#vim Dockerfile
+
+
+
+Paste following content inside the Docker file FROM ubuntu:latest
+LABEL app="nodejs" 
+LABEL Author="siddhant" 
+RUN apt update
+RUN apt install nodejs npm -y
+RUN git clone https://github.com/owanhunte/nodejs-chat-app.git WORKDIR nodejs-chat-app
+RUN npm install EXPOSE 3000
+CMD [ "npm", "start" ]
+
+
+Enter command "docker build ." to create an docker image
+
+Step-6
+List the images by using command "docker images"
+
+Step-7
+Create container with the help of docker image #docker run -d -p 3000:3000
+
+Step-8
+Check the application in browser http//<IP of instance>:3000
+
+
+
+
+
+
+
+
+
+
+
