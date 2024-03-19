@@ -1,0 +1,14 @@
+#fields of container
+1.  container id -> your container id
+
+2.  image -> your container image (linux,ubuntu)
+3.  created -> your container created status
+
+4.  status ->   exit(0)                                     exit(111)
+                container proccess complete                 container proccess complete 
+                & it exit without containning               & it exit with containning
+                  any error                                   error
+
+5.  PORT -> container port number
+
+6.  name -> container name
